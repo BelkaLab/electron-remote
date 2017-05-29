@@ -424,7 +424,7 @@ export function initializeEvalHandler() {
       if (receive.eval) {
         receive.result = eval(receive.eval);
       } else {
-        receive.result = await evalRemoteMethod(receive.path, receive.args);
+        receive.result = await evalRemoteMethod(receive.path, [...receive.args, () => send(responseChannel, receive)]);
       }
 
       d(`Replying! ${JSON.stringify(receive)} - ID is ${e.sender}`);
