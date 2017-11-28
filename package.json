@@ -4,7 +4,7 @@
   "description": "Execute JavaScript in remote Electron processes, but more betterer",
   "scripts": {
     "doc": "esdoc -c ./esdoc.json",
-    "compile": "git clean -xdf ./lib && babel -d lib/ src/ && cp ./src/*.html ./lib/",
+    "compile": "git clean -xdf ./lib && babel -d lib/ src/ && cpx ./src/*.html ./lib/",
     "prepublish": "npm run compile",
     "test-renderer": "electron-mocha --renderer --require ./test/support.js ./test",
     "test-browser": "electron-mocha --require ./test/support.js ./test/renderer-require",
@@ -43,6 +43,7 @@
     "babel-register": "^6.16.3",
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
+    "cpx": "^1.5.0",
     "cross-env": "^3.0.0",
     "electron-mocha": "^3.1.1",
     "electron-prebuilt-compile": "1.4.14",
