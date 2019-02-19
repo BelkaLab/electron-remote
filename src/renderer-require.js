@@ -39,7 +39,14 @@ const BrowserWindow = process.type === 'renderer' ?
  *                              the window.
  */
 export async function rendererRequireDirect(modulePath) {
-  let bw = new BrowserWindow({width: 500, height: 500, show: false});
+  let bw = new BrowserWindow({
+    width: 500,
+    height: 500,
+    show: false,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  });
 
   let ready = Observable.merge(
     fromRemoteWindow(bw, 'did-finish-load', true),
