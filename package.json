@@ -9,7 +9,8 @@
     "test-renderer": "electron-mocha --renderer --require ./test/support.js ./test",
     "test-browser": "electron-mocha --require ./test/support.js ./test/renderer-require",
     "test": "npm run test-renderer && npm run test-browser",
-    "node": "cross-env ELECTRON_RUN_AS_NODE=1 ./node_modules/electron-prebuilt-compile/node_modules/.bin/electron"
+    "node": "cross-env ELECTRON_RUN_AS_NODE=1 ./node_modules/electron-prebuilt-compile/node_modules/.bin/electron",
+    "postinstall": "node node_modules/fbjs-scripts/node/check-dev-engines.js package.json"
   },
   "repository": {
     "type": "git",
@@ -50,6 +51,11 @@
     "esdoc": "^0.4.8",
     "esdoc-es7-plugin": "0.0.3",
     "esdoc-plugin-async-to-sync": "^0.5.0",
-    "eslint": "^3.7.1"
+    "eslint": "^3.7.1",
+    "fbjs-scripts": "^0.8.1"
+  },
+  "devEngines": {
+    "node": "^8.16",
+    "npm": "^6.4"
   }
 }
